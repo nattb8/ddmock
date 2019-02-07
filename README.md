@@ -4,25 +4,39 @@ An API mocking library for Android.
 
 ## Pre-requisite
 
-App must be using:
-* Retrofit and OkHttp for networking
-* AndroidX
-
-Support library support coming soon
-
+App must be using OkHttp for networking
 
 ## Getting started
 
 [![](https://jitpack.io/v/nf1993/ddmock.svg)](https://jitpack.io/#nf1993/ddmock)
 
-1. In your `build.gradle` file:
+1. In your project `build.gradle` file:
+
+```groovy
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+```
+
+2. In your `build.gradle` file:
+
+If the project is using AndroidX:
 
 ```groovy
 debugImplementation 'com.github.nf1993.ddmock:ddmock:[version]'
 releaseImplementation 'com.github.nf1993.ddmock:ddmock-no-op:[version]'
 ```
 
-2. In your `Application` class:
+If the project is using Support libraries:
+
+```groovy
+debugImplementation 'com.github.nf1993.ddmock:ddmock-support:[version]'
+releaseImplementation 'com.github.nf1993.ddmock:ddmock-no-op-support:[version]'
+```
+
+3. In your `Application` class:
 
 ```java
 class ExampleApplication : Application() {
@@ -35,7 +49,7 @@ class ExampleApplication : Application() {
 }
 ```
 
-2. Add `MockInterceptor` to OkHttpClient
+4. Add `MockInterceptor` to OkHttpClient
 
 ```java
 val clientBuilder = OkHttpClient().newBuilder()

@@ -7,6 +7,7 @@ apply plugin: 'kotlin-android'
 android {
     compileSdkVersion 28
 
+
     defaultConfig {
         minSdkVersion 23
         versionCode 1
@@ -30,14 +31,12 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation lib.appcompat
-    implementation lib.constraintlayout
-    implementation lib.recyclerview
-    implementation lib.material
+    implementation lib.supportAppcompatV7
+    implementation lib.supportConstraintlayout
+    implementation lib.supportRecyclerviewV7
+    implementation lib.supportDesign
     implementation lib.kotlinxCoroutinesCore
     implementation lib.kotlinxCoroutinesAndroid
     implementation lib.okhttpLoggingInterceptor
     implementation lib.okhttp
-
-    testImplementation 'junit:junit:4.12'
 }
